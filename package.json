@@ -1,0 +1,33 @@
+{
+  "name": "ts-type-inspector",
+  "version": "0.1.0",
+  "description": "TypeScript runtime type inspector with decorator metadata",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "typescript",
+    "decorator",
+    "reflect-metadata",
+    "type-inspector"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourname/ts-type-inspector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourname/ts-type-inspector/issues"
+  },
+  "homepage": "https://github.com/yourname/ts-type-inspector#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
