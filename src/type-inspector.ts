@@ -2,7 +2,7 @@ import "reflect-metadata";
 
 export type TypeInfo =
   | { kind: "Simple"; type: string }
-  | { kind: "Primitive"; type: "string" | "number" | "boolean" | "bigint" | "symbol" | "undefined" | "null" }
+  | { kind: "Primitive"; type: "string" | "number" | "boolean" | "bigint" | "symbol" | "undefined" | "null" | "any" }
   | { kind: "Array" | "ReadonlyArray" | "Set"; inner: TypeInfo }
   | { kind: "Promise" | "PromiseLike"; inner: TypeInfo }
   | { kind: "Observable"; inner: TypeInfo }

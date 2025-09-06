@@ -1,11 +1,13 @@
 {
-  "name": "ts-type-inspector",
+  "name": "inspector",
   "version": "0.1.0",
   "description": "TypeScript runtime type inspector with decorator metadata",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "test": "ts-node test-enhanced-features.ts",
+    "demo": "npm run build && node dist/test-enhanced-features.js",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -18,16 +20,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourname/ts-type-inspector.git"
+    "url": "git+https://github.com/gotasource/inspector.git"
   },
   "bugs": {
-    "url": "https://github.com/yourname/ts-type-inspector/issues"
+    "url": "https://github.com/gotasource/inspector/issues"
   },
-  "homepage": "https://github.com/yourname/ts-type-inspector#readme",
+  "homepage": "https://github.com/gotasource/inspector#readme",
   "dependencies": {
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.0.0"
   }
 }
