@@ -25,15 +25,36 @@ export type TypeInfo =
   | { kind: "TemplateLiteral"; parts: string[]; types: TypeInfo[] }
   | { kind: "unknown" };
 
+/**
+ * TypeInspector - A comprehensive TypeScript runtime type inspector
+ * Provides utilities for inspecting, analyzing, and validating TypeScript types at runtime
+ */
 export class TypeInspector {
+  /**
+   * Gets type information for a method from metadata
+   * @param target - The target object containing the method
+   * @param propertyKey - The method name
+   * @returns TypeInfo if found, undefined otherwise
+   */
   static getMethodTypeInfo(target: any, propertyKey: string): TypeInfo | undefined {
     return this._getTypeInfo(target, propertyKey);
   }
 
+  /**
+   * Gets type information for a property from metadata
+   * @param target - The target object containing the property
+   * @param propertyKey - The property name
+   * @returns TypeInfo if found, undefined otherwise
+   */
   static getPropertyTypeInfo(target: any, propertyKey: string): TypeInfo | undefined {
     return this._getTypeInfo(target, propertyKey);
   }
 
+  /**
+   * Gets the inner type from a Promise or PromiseLike type
+   * @param typeInfo - The type info to extract from
+   * @returns The awaited type or the original type if not a Promise
+   */
   static getAwaitedType(typeInfo?: TypeInfo): TypeInfo | undefined {
     if (!typeInfo) return;
     if (typeInfo.kind === "Promise" || typeInfo.kind === "PromiseLike") {
@@ -42,6 +63,11 @@ export class TypeInspector {
     return typeInfo;
   }
 
+  /**
+   * Gets the item type from an Array, ReadonlyArray, or Set type
+   * @param typeInfo - The type info to extract from
+   * @returns The item type or the original type if not a collection
+   */
   static getItemType(typeInfo?: TypeInfo): TypeInfo | undefined {
     if (!typeInfo) return;
     if (
@@ -54,6 +80,11 @@ export class TypeInspector {
     return typeInfo;
   }
 
+  /**
+   * Gets the inner type from an Observable type
+   * @param typeInfo - The type info to extract from
+   * @returns The subscribe type or the original type if not an Observable
+   */
   static getSubscribeType(typeInfo?: TypeInfo): TypeInfo | undefined {
     if (!typeInfo) return;
     if (typeInfo.kind === "Observable") {
